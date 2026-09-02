@@ -1,0 +1,11 @@
+# Render Blueprint — deploy with "New → Blueprint" and point it at this repo.
+# One static site, no build step: what's in the repo is what's served.
+services:
+  - type: web
+    name: payforspot
+    runtime: static
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=300
